@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+.btn:hover {
+  box-shadow: 0 0 15px hotpink;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soumya Kurapati | Portfolio</title>
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#0d0d0d;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* Navbar */
+
+    nav{
+      width:100%;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
+      background:rgba(0,0,0,0.7);
+      backdrop-filter:blur(10px);
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#ff4fd8;
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#ff4fd8;
+    }
+
+    /* Hero */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:50px;
+      padding:120px 8%;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h1{
+      font-size:60px;
+      margin-bottom:10px;
+    }
+
+    .hero-text span{
+      color:#ff4fd8;
+    }
+
+    .hero-text h2{
+      color:#c084fc;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      color:#d1d5db;
+      line-height:1.8;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 25px;
+      background:linear-gradient(45deg,#9333ea,#ff4fd8);
+      border-radius:30px;
+      color:white;
+      text-decoration:none;
+      margin-right:15px;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 20px #ff4fd8;
+    }
+
+    .hero-image img{
+      width:320px;
+      height:320px;
+      object-fit:cover;
+      border-radius:50%;
+      border:5px solid #ff4fd8;
+      box-shadow:0 0 30px #ff4fd8;
+    }
+
+    /* Section */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .title{
+      text-align:center;
+      font-size:40px;
+      margin-bottom:50px;
+      color:#ff4fd8;
+    }
+
+    /* About */
+
+    .about p{
+      max-width:800px;
+      margin:auto;
+      text-align:center;
+      line-height:1.8;
+      color:#d1d5db;
+    }
+
+    /* Skills */
+
+    .skills-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:20px;
+    }
+
+    .skill{
+      background:rgba(255,255,255,0.05);
+      padding:25px;
+      border-radius:15px;
+      text-align:center;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .skill:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 20px #ff4fd8;
+    }
+
+    /* Projects */
+
+    .projects-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .project-card{
+      background:rgba(255,255,255,0.05);
+      border-radius:15px;
+      overflow:hidden;
+      transition:0.3s;
+    }
+
+    .project-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 0 20px #ff4fd8;
+    }
+
+    .project-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .project-card h3{
+      padding:20px 20px 10px;
+    }
+
+    .project-card p{
+      padding:0 20px 20px;
+      color:#d1d5db;
+    }
+
+    .tags{
+      padding:0 20px 20px;
+    }
+
+    .tags span{
+      background:#9333ea;
+      padding:6px 12px;
+      border-radius:20px;
+      margin-right:10px;
+      font-size:13px;
+    }
+
+    /* Contact */
+
+    .contact form{
+      max-width:600px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    .contact input,
+    .contact textarea{
+      padding:15px;
+      border:none;
+      border-radius:10px;
+      background:rgba(255,255,255,0.05);
+      color:white;
+    }
+
+    .contact button{
+      border:none;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#111;
+      color:#aaa;
+    }
+
+    /* Responsive */
+
+    @media(max-width:768px){
+
+      nav ul{
+        display:none;
+      }
+
+      .hero{
+        text-align:center;
+      }
+
+      .hero-text h1{
+        font-size:45px;
+      }
+
+      .hero-image img{
+        width:250px;
+        height:250px;
+      }
+
+    }    
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav>
+
+    <div class="logo">Soumya.</div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- Hero -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-text">
+
+      <h1 class="fade-in">Hello, I'm <span>Soumya Kurapati</span></h1>
+
+      <h2 class="fade-in">Web Developer & Software Engineer and Freelancer</h2>
+      <p>
+        B.Tech student passionate about building clean, AI Technologies and web experiences   
+focused on writing efficient code and continuously improving my development skills. Aspiring Software Engineer and Web development.
+      </p>
+
+      <a href="#projects" class="btn">View Projects</a>
+
+      <a href="#contact" class="btn">Hire Me</a>
+
+    </div>
+
+    <div class="hero-image">
+    <img src="/assets/profile.jpg" alt="Profile Image">
+</div>
+  </section>
+
+  <!-- About -->
+
+  <section class="about" id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <p>
+      I’m a creative web developer and Software engineering student passionate about
+      designing modern websites and building responsive digital experiences.
+      I enjoy combining creativity with technology to create elegant and
+      interactive web applications. Aspiring for web development and Software Development. 
+    </p>
+    <br><br><br><br>
+
+
+
+
+     <h1>Welcome to My Portfolio</h1>
+     <br><br>
+
+<br><br>
+<h1>
+<a href="/resume.pdf" target="_blank" class="btn">
+  View Resume
+</a></h1>
+  </section>
+
+  <!-- Skills -->
+
+  <section id="skills">
+
+    <h2 class="title">Skills</h2>
+
+    <div class="skills-container">
+
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">React.js</div>  
+      <div class="skill">Python</div>
+      <div class="skill">Node.js</div>
+      <div class="skill">Git/GitHub</div>
+      <div class="skill">Basic Database Knowledge</div>
+      <div class="skill">UI/UX Design</div>
+      <div class="skill">Communication Skills</div>
+      <div class="skill">Team Collaboration</div>
+      <div class="skill">AI/ML</div>
+      <div class="skill">Java</div>
+      
+
+    </div>
+
+  </section>
+
+  <!-- Projects -->
+
+  <section id="projects">
+
+    <h2 class="title">Projects</h2>
+
+    <div class="projects-container">
+
+      <!-- Project 1 -->
+
+      <div class="project-card">
+
+        <img src="/assets/project1.jpg" alt="Project 1">
+
+        <h3>Professional Business Website</h3>
+
+        <p>
+          <p>
+  Simple and responsive business website designed with a clean layout,
+  modern user interface, and mobile-friendly design to provide a smooth
+  and professional user experience.
+</p>
+        </p>
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+      </div>
+
+      <!-- Project 2 -->
+
+      <div class="project-card">
+
+        <img src="/assets/project2.jpg" alt="Project 2">
+        <h3>Online Bookstore Website
+</h3>
+
+        <p>
+          <p>
+  Responsive online bookstore website with modern design, category browsing,
+  and user-friendly interface for exploring and purchasing books easily.
+</p>
+        </p>
+
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>AI/ML</span>
+        </div>
+
+      </div>
+
+      <!-- Project 3 -->
+
+      <div class="project-card">
+
+        <img src="/assets/project3.jpg" alt="Project 3">
+        <h3>Brand & Dress Code Detector</h3>
+
+        <p>
+          <p>
+  Smart fashion detection website that identifies clothing styles, brands,
+  and dress codes using an interactive and modern user interface.
+</p>
+        </p>
+
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+      </div>
+    <!-- project 4 -->
+
+      <div class="project-card">
+
+  <img src="/assets/project4.jpg" alt="project 4">
+
+  <h3>Customer Segmentation System</h3>
+
+   <p>
+  <p>
+    A web-based system that categorizes users into different groups based on their behavior and preferences.
+    Useful for marketing and business analysis.
+  </p>
+  </p>
+
+  <div class="tags">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+  </div>
+
+</div>
+
+    <!-- project 5 -->
+
+    <div class="project-card">
+
+  <img src="/assets/project5.jpg" alt="project 5">
+
+  <h3>Image Recognition </h3>
+
+  <p>
+  <p>
+    AI-powered application that identifies objects in images using machine learning models.
+    Users can upload images and get instant predictions.
+  </p>
+  </p>
+
+  <div class="tags">
+    <span>Python</span>
+    <span>AI/ML</span>
+    <span>JS</span>
+    <span>OpenCV</span>
+  </div>
+
+</div>
+
+     <!-- project 6 -->
+      <div class="project-card">
+
+  <img src="/assets/project6.jpg" alt="project 6">
+
+  <h3>User Registration Page</h3>
+
+  <p>
+    <p>
+    A responsive registration form with validation for name, email, and password.
+    Designed for modern web applications.
+  </p>
+  </p>
+
+  <div class="tags">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+  </div>
+
+</div>
+
+    <!-- project 7 -->
+
+    <div class="project-card">
+
+  <img src="/assets/project7.jpg" alt="project 7">
+
+  <h3>Machine Learning Image Recognition System</h3>
+   
+  <p>
+  <p>
+    An AI-based image recognition system that classifies objects in images using a trained deep learning model.
+    The system processes uploaded images and predicts labels such as animals, objects, or scenes with high accuracy.
+  </p>
+  </p>
+
+  <div class="tags">
+    <span>Python</span>
+    <span>ML</span>
+    <span>TensorFlow</span>
+    <span>OpenCV</span>
+  </div>
+
+</div>
+  
+
+
+ <!-- Project 8 -->
+
+<div class="project-card">
+
+  <img src="/assets/project8.jpg" alt="Fashion Store Website">
+
+  <h3>Luxury Fashion E-Commerce Website</h3>
+
+  <p>
+    Modern luxury fashion shopping website built using HTML, CSS, and JavaScript.
+    Features responsive design, product showcase, stylish UI, and interactive shopping experience.
+  </p>
+
+  <div class="tags">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>E-Commerce</span>
+  </div>
+
+  <br>
+
+  <a href=" https://soumyakurapati.github.io/veloura-fashion-store/" 
+     target="_blank" 
+     class="btn"
+     style="margin:20px;">
+     
+     Live Demo
+     
+  </a>
+
+</div>
+  
+  <!-- Project 9 -->
+
+<div class="project-card">
+
+  <img src="/assets/project9.jpg" alt="AI Outfit Recommendation Website">
+
+  <h3>AI Outfit Recommendation Website</h3>
+
+  <p>
+    Built using HTML, CSS, and AI/ML-inspired UI design.
+Features smart outfit recommendations, fashion cards, modern responsive layout, and futuristic styling.
+  </p>
+
+  <div class="tags">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>AI/ML</span>
+    <span>UI design</span>
+  </div>
+
+  <br>
+
+  <a href="  https://soumyakurapati.github.io/AI-Outfit-Recommender/" 
+     target="_blank" 
+     class="btn"
+     style="margin:20px;">
+     
+     Live Demo
+     
+  </a>
+
+</div>
+    <!-- Project 10 -->
+
+<div class="project-card">
+
+  <img src="/assets/project10.jpg" alt="AI Resume Builder">
+
+  <h3>AI Resume Builder</h3>
+
+  <p>
+    Built a responsive AI-powered Resume Builder with live preview, dynamic templates, and PDF export using HTML, CSS, and JavaScript.
+  </p>
+
+  <div class="tags">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>AI/ML</span>
+    <span>UI</span>
+    <span>DOM Manipulation</span>
+  </div>
+
+  <br>
+
+  <a href="  https://soumyakurapati.github.io/AI-Resume-Builder/" 
+     target="_blank" 
+     class="btn"
+     style="margin:20px;">
+     
+     Live Demo
+     
+  </a>
+
+</div>
+
+<!-- Project 11 -->
+
+<div class="project-card">
+
+  <img src="/assets/project11.jpg" alt="AI Chatbot">
+
+  <h3>AI Chatbot</h3>
+
+  <p>
+    <p>
+Built a responsive AI Chatbot web application with dynamic messaging, automated responses, modern UI design, and interactive chatbot functionality using HTML, CSS, and JavaScript.
+</p>
+  </p>
+
+  <div class="tags">
+    <span>HTML5</span>
+    <span>CSS3</span>
+    <span>JavaScript</span>
+    <span>OpenAI API</span>
+    <span>DOM Manipulation</span>
+  </div>
+
+  <br>
+
+  <a href="  https://soumyakurapati.github.io/AI-Chatbot/" 
+     target="_blank" 
+     class="btn"
+     style="margin:20px;">
+     
+     Live Demo
+     
+  </a>
+
+
+
+</div>
+
+<!-- Project 12 -->
+
+<div class="project-card">
+
+  <img src="/assets/project12.jpg" alt="AI UI UX Generator">
+
+  <h3>AI UI/UX Generator</h3>
+
+  <p>
+Built a modern AI-powered UI/UX Generator web application that creates futuristic shopping dashboards, responsive website layouts, dynamic product sections, and premium user interface concepts using HTML, CSS, JavaScript, and AI API integration.
+  </p>
+
+  <div class="tags">
+    <span>HTML5</span>
+    <span>CSS3</span>
+    <span>JavaScript</span>
+    <span>AI API</span>
+    <span>Responsive Design</span>
+    <span>UI/UX</span>
+    <span>Frontend Development</span>
+  </div>https://ai-ui-generator-nbzvtxp9u-soumya-kurapati-s-projects.vercel.app/
+
+  <br>
+
+  <a href=" https://ai-ui-generator-nbzvtxp9u-soumya-kurapati-s-projects.vercel.app/"
+     target="_blank" 
+     class="btn"
+     style="margin:20px;">
+     
+     Live Demo
+     
+  </a>
+
+</div>
+    </div>
+
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <h2 class="title">Contact Me</h2>
+    <div class="contact-message">
+  <h2>Let's Work Together</h2>
+  <p><h3>
+    I’m actively looking for opportunities in Software Engineering, Web Development, and AI/ML projects, Freelancing.
+    Feel free to reach out for internships, projects, or collaboration.
+  </p></h3>
+</div>
+<br><br>
+
+  <!-- ✅ ADD THIS BELOW FORM -->
+  <div class="contact-links">
+<h2>
+  <a href="https://www.instagram.com/sheluvherweb/" 
+  target="_blank" 
+     class="btn"
+     style="margin:20px;">
+    📸 Instagram
+  </a>
+
+  <a href="mailto:kurapatisoumya441@gmail.com" 
+  target="_blank" 
+     class="btn"
+     style="margin:20px;">
+    📧 Gmail
+  </a>
+</h2>
+</div>
+</section>
+  <section class="contact" id="contact">
+    <form id="contact-form">
+
+  <input type="text"
+         name="name"
+         placeholder="Your Name"
+         required>
+
+  <input type="email"
+         name="email"
+         placeholder="Your Email"
+         required>
+
+  <textarea name="message"
+            rows="5"
+            placeholder="Your Message"
+            required></textarea>
+
+  <button class="btn" type="submit">
+    Send Message
+  </button>
+
+</form>
+
+  </section>
+    <script>
+
+emailjs.init("wRpEzKdGivJTqOlOz");
+
+document
+.getElementById("contact-form")
+.addEventListener("submit", function(event){
+
+  event.preventDefault();
+
+  emailjs.sendForm(
+    "kurapatisoumya441@gmail.",
+    "template_p62yywc",
+    this
+  )
+
+  .then(function(){
+
+    alert("Message Sent Successfully ✨");
+
+  })
+
+  .catch(function(error){
+
+    alert("Failed to send message");
+
+    console.log(error);
+
+  });
+
+});
+
+</script>
+
+  <!-- Footer -->
+
+  <footer>
+
+    <p>© 2026 Soumya Kurapati | All Rights Reserved</p>
+
+  </footer>
+
+</body>
+</html>                
